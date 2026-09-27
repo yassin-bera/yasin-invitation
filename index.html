@@ -2,683 +2,477 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <title>دعوت‌نامه جلسه دفاع</title>
+  <title>دعوت‌نامه جلسه دفاع یاسین بیرامی</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
-
-    :root {
-      --gold: #c9a45c;
-      --gold-dark: #98783d;
-      --ink: #25211c;
-    }
-
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html,
     body {
-      margin: 0;
       width: 100%;
       min-height: 100%;
     }
 
     body {
       font-family: "Vazirmatn", sans-serif;
-      color: var(--ink);
-
       background:
-        radial-gradient(
-          circle at 20% 20%,
-          rgba(201,164,92,.13),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 80% 80%,
-          rgba(201,164,92,.09),
-          transparent 30%
-        ),
-        linear-gradient(
-          135deg,
-          #f7f4ed,
-          #e9e3d7
-        );
-
+        radial-gradient(circle at 50% 15%, rgba(255,255,255,.95), transparent 32%),
+        linear-gradient(135deg, #eee6d7, #d8cbb7);
+      color: #302b24;
       overflow-x: hidden;
     }
-
-    /* جلوگیری از اسکرول ناخواسته */
-    body.no-scroll {
-      overflow: hidden;
-    }
-
-    /* ===== BACKGROUND ===== */
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .22;
-
-      background-image:
-        radial-gradient(
-          #b9aa8c .6px,
-          transparent .6px
-        );
-
-      background-size: 18px 18px;
-    }
-
-    .decor {
-      position: fixed;
-      border: 1px solid rgba(152,120,61,.15);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .decor.one {
-      width: 480px;
-      height: 480px;
-      top: -220px;
-      right: -160px;
-    }
-
-    .decor.two {
-      width: 360px;
-      height: 360px;
-      bottom: -190px;
-      left: -120px;
-    }
-
-    /* ===== PAGE ===== */
 
     .page {
       width: 100%;
-      min-height: 100vh;
-
+      min-height: 100svh;
       display: flex;
       align-items: center;
       justify-content: center;
-
-      padding: 30px 15px;
+      padding: 30px 12px;
+      overflow-x: hidden;
     }
-
-    /* ===== SCENE ===== */
 
     .scene {
       position: relative;
-
       width: min(88vw, 540px);
       height: 390px;
-
       perspective: 1400px;
-      cursor: pointer;
-
-      touch-action: manipulation;
     }
 
-    /* ===== CARD ===== */
-
-    .card {
-      position: absolute;
-      z-index: 3;
-
-      width: 88%;
-      height: 91%;
-
-      left: 6%;
-      bottom: 6%;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,.98),
-          rgba(248,244,234,.98)
-        );
-
-      border-radius: 5px;
-
-      box-shadow:
-        0 25px 60px rgba(55,45,30,.18),
-        0 5px 15px rgba(55,45,30,.12);
-
-      overflow: hidden;
-
-      opacity: 0;
-
-      transform:
-        translate3d(0,45px,0)
-        scale(.97);
-
-      transition:
-        transform 1.25s cubic-bezier(.22,.8,.25,1),
-        opacity .7s ease;
-
-      pointer-events: none;
-    }
-
-    /* کادر داخلی کارت */
-
-    .card::before {
-      content: "";
-
-      position: absolute;
-      inset: 12px;
-
-      border:
-        1px solid rgba(201,164,92,.45);
-
-      pointer-events: none;
-    }
-
-    /* ستاره پایین */
-
-    .card::after {
-      content: "✦";
-
-      position: absolute;
-
-      left: 50%;
-      bottom: 12px;
-
-      transform:
-        translateX(-50%);
-
-      color: var(--gold);
-      font-size: 13px;
-
-      pointer-events: none;
-    }
-
-    /* ===== CARD CONTENT ===== */
-
-    .card-content {
-      position: relative;
-
-      height: 100%;
-
-      padding:
-        38px
-        42px
-        35px;
-
-      overflow-y: auto;
-      overflow-x: hidden;
-
-      -webkit-overflow-scrolling: touch;
-
-      scrollbar-width: thin;
-
-      opacity: 0;
-
-      transform:
-        translate3d(0,20px,0);
-
-      transition:
-        opacity .8s ease .75s,
-        transform .8s ease .75s;
-    }
-
-    .card-content::-webkit-scrollbar {
-      width: 3px;
-    }
-
-    .card-content::-webkit-scrollbar-thumb {
-      background:
-        rgba(201,164,92,.5);
-    }
-
-    /* ===== HEADER ===== */
-
-    .card-top {
-      text-align: center;
-      margin-bottom: 22px;
-    }
-
-    .card-top .small {
-      font-size: 11px;
-      color: var(--gold-dark);
-      margin-bottom: 7px;
-    }
-
-    .card-name {
-      font-size: clamp(20px,4vw,25px);
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .gold-line {
-      width: 55px;
-      height: 2px;
-
-      background: var(--gold);
-
-      margin: auto;
-    }
-
-    /* ===== INTRO ===== */
-
-    .intro {
-      text-align: center;
-
-      font-size: 14px;
-      line-height: 2.15;
-
-      color: #4d473f;
-
-      margin-bottom: 20px;
-    }
-
-    /* ===== TITLE ===== */
-
-    .title-box {
-      border-right:
-        3px solid var(--gold);
-
-      background:
-        rgba(201,164,92,.07);
-
-      padding:
-        13px
-        16px;
-
-      margin:
-        20px 0;
-
-      border-radius: 3px;
-    }
-
-    .title-label {
-      font-size: 11px;
-      font-weight: 800;
-
-      color: var(--gold-dark);
-
-      margin-bottom: 7px;
-    }
-
-    .thesis-title {
-      font-size: 14px;
-      line-height: 2;
-      font-weight: 600;
-    }
-
-    /* ===== INFO ===== */
-
-    .info {
-      margin-top: 18px;
-    }
-
-    .info-row {
-      display: flex;
-
-      align-items: flex-start;
-
-      gap: 12px;
-
-      padding: 8px 0;
-
-      border-bottom:
-        1px solid rgba(100,90,70,.10);
-
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .info-label {
-      min-width: 95px;
-
-      font-weight: 800;
-
-      color: var(--gold-dark);
-    }
-
-    .info-value {
-      flex: 1;
-    }
-
-    /* ===== CLOSING ===== */
-
-    .closing {
-      margin-top: 22px;
-
-      text-align: center;
-
-      font-size: 13px;
-      line-height: 2;
-
-      color: #4c473f;
-    }
-
-    .signature {
-      text-align: center;
-
-      margin-top: 16px;
-
-      font-weight: 700;
-
-      color: var(--gold-dark);
-
-      font-size: 14px;
-    }
-
-    /* ===== ENVELOPE ===== */
+    /* =========================
+       ENVELOPE
+    ========================= */
 
     .envelope {
       position: absolute;
-
       left: 0;
-      right: 0;
       bottom: 0;
-
       width: 100%;
       height: 350px;
-
-      transform-style: preserve-3d;
-    }
-
-    .envelope-body {
-      position: absolute;
-      inset: 0;
-
-      background:
-        linear-gradient(
-          145deg,
-          #e7dcc7,
-          #cbb998
-        );
-
-      border-radius:
-        5px
-        5px
-        10px
-        10px;
-
+      border-radius: 12px;
+      background: linear-gradient(145deg, #d8c7ab, #bca98b);
       box-shadow:
-        0 22px 45px rgba(50,40,25,.23),
-        0 3px 7px rgba(50,40,25,.12);
-
-      overflow: hidden;
+        0 25px 55px rgba(70, 53, 30, .25),
+        inset 0 1px 0 rgba(255,255,255,.5);
+      overflow: visible;
+      z-index: 5;
     }
 
-    .envelope-body::before {
+    .envelope::before {
       content: "";
-
       position: absolute;
       inset: 0;
-
-      background:
-        linear-gradient(
-          35deg,
-          transparent 49.5%,
-          rgba(100,80,50,.13) 50%,
-          transparent 50.5%
-        ),
-        linear-gradient(
-          -35deg,
-          transparent 49.5%,
-          rgba(100,80,50,.13) 50%,
-          transparent 50.5%
-        );
+      border-radius: 12px;
+      box-shadow:
+        inset 0 0 0 1px rgba(86, 64, 35, .18);
+      pointer-events: none;
     }
 
-    /* ===== FLAP ===== */
+    /* پایین پاکت */
+
+    .envelope-bottom {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .envelope-bottom::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-left: 50% solid transparent;
+      border-right: 50% solid transparent;
+      border-bottom: 0;
+    }
+
+    .left-fold,
+    .right-fold {
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      z-index: 2;
+    }
+
+    .left-fold {
+      left: 0;
+      border-top: 175px solid transparent;
+      border-left: 270px solid #c8b496;
+      border-bottom: 175px solid transparent;
+    }
+
+    .right-fold {
+      right: 0;
+      border-top: 175px solid transparent;
+      border-right: 270px solid #c8b496;
+      border-bottom: 175px solid transparent;
+    }
+
+    .bottom-fold {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-left: 50% solid transparent;
+      border-right: 50% solid transparent;
+      border-bottom: 0;
+      z-index: 3;
+    }
+
+    .bottom-fold-shape {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      transform: translateX(-50%);
+      border-left: 270px solid transparent;
+      border-right: 270px solid transparent;
+      border-bottom: 175px solid #bda989;
+      z-index: 3;
+    }
+
+    /* =========================
+       FLAP
+    ========================= */
 
     .flap {
       position: absolute;
-
-      z-index: 5;
-
-      top: 0;
       left: 0;
-
+      top: 0;
       width: 100%;
       height: 63%;
-
-      background:
-        linear-gradient(
-          160deg,
-          #efe6d5,
-          #d4c3a3
-        );
-
-      clip-path:
-        polygon(
-          0 0,
-          100% 0,
-          50% 100%
-        );
-
+      background: linear-gradient(145deg, #dfceb0, #c4af8e);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
       transform-origin: top center;
-
-      transform:
-        rotateX(0deg);
-
       transition:
-        transform 1.2s cubic-bezier(.2,.75,.2,1);
-
-      backface-visibility: hidden;
+        transform 1s cubic-bezier(.2,.8,.2,1),
+        z-index 0s linear 0.5s;
+      z-index: 7;
+      filter: drop-shadow(0 4px 5px rgba(60,45,25,.13));
     }
 
     .flap::after {
       content: "";
-
       position: absolute;
-
-      inset: 2px;
-
-      clip-path:
-        polygon(
-          0 0,
-          100% 0,
-          50% 97%
-        );
-
-      border-top:
-        1px solid rgba(255,255,255,.45);
+      inset: 0;
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.18),
+        transparent 45%
+      );
+      pointer-events: none;
     }
 
-    /* ===== RECIPIENT ===== */
+    .scene.open .flap {
+      transform: rotateX(180deg);
+      z-index: 2;
+      transition:
+        transform 1s cubic-bezier(.2,.8,.2,1),
+        z-index 0s linear 0.5s;
+    }
+
+    /* =========================
+       RECIPIENT NAME
+    ========================= */
 
     .recipient {
       position: absolute;
-
-      z-index: 6;
-
-      /* قبلاً 67% بود؛ کمی پایین‌تر آمده */
+      z-index: 8;
       top: 72%;
-
       left: 50%;
-
       width: 90%;
-
-      transform:
-        translate3d(-50%,-50%,0);
-
+      transform: translate3d(-50%, -50%, 0);
       text-align: center;
-
       color: #302b24;
-
-      font-size:
-        clamp(
-          18px,
-          3.5vw,
-          24px
-        );
-
+      font-size: clamp(18px, 3.5vw, 24px);
       font-weight: 700;
-
       white-space: nowrap;
-
       transition:
         opacity .45s ease,
         transform .45s ease;
     }
 
-    .recipient::after {
-      content: "";
-
-      display: block;
-
-      width: 55px;
-      height: 2px;
-
-      background: var(--gold);
-
-      margin:
-        10px auto 0;
-    }
-
-    /* ===== SEAL ===== */
-
-    .seal {
-      position: absolute;
-
-      z-index: 7;
-
-      bottom: 13px;
-      left: 50%;
-
-      width: 48px;
-      height: 48px;
-
-      transform:
-        translate3d(-50%,0,0);
-
-      border-radius: 50%;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      background:
-        radial-gradient(
-          circle,
-          #e6c77d,
-          #aa823f
-        );
-
-      color: white;
-
-      font-size: 13px;
-      font-weight: 800;
-
-      border:
-        2px solid rgba(255,255,255,.55);
-
-      box-shadow:
-        0 4px 12px rgba(50,40,20,.22);
-
-      transition:
-        opacity .5s ease,
-        transform .6s ease;
-    }
-
-    /* ===== HINT ===== */
-
-    .hint {
-      position: absolute;
-
-      bottom: -34px;
-      left: 50%;
-
-      transform:
-        translate3d(-50%,0,0);
-
-      color: #7c7367;
-
-      font-size: 11px;
-
-      white-space: nowrap;
-
-      transition:
-        opacity .5s ease;
-    }
-
-    /* =================================================
-       OPEN
-       ================================================= */
-
-    .scene.open .flap {
-      transform:
-        rotateX(180deg);
-
-      z-index: 1;
-    }
-
     .scene.open .recipient {
       opacity: 0;
-
-      transform:
-        translate3d(-50%,-40%,0)
-        scale(.95);
+      transform: translate3d(-50%, -40%, 0);
+      pointer-events: none;
     }
 
-    .scene.open .seal {
+    /* =========================
+       CARD
+    ========================= */
+
+    .card {
+      position: absolute;
+      left: 5%;
+      bottom: 0;
+      width: 90%;
+      height: min(680px, 82vh);
+      min-height: 420px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.98),
+          rgba(248,243,234,.98)
+        );
+
+      border-radius: 16px;
+      border: 1px solid rgba(130,105,70,.18);
+
+      box-shadow:
+        0 30px 70px rgba(62,45,25,.28),
+        0 5px 18px rgba(62,45,25,.14);
+
       opacity: 0;
 
-      transform:
-        translate3d(-50%,0,0)
-        scale(.7);
+      transform: translate3d(0, 0, 0) scale(.96);
+
+      transition:
+        transform .6s ease,
+        opacity .45s ease;
+
+      z-index: 3;
+      pointer-events: none;
+      overflow: hidden;
     }
 
     .scene.open .card {
       opacity: 1;
-
-      transform:
-        translate3d(0,-135px,0)
-        scale(1);
+      transform: translate3d(0, -135px, 0) scale(1);
 
       transition:
         transform 1.4s cubic-bezier(.18,.82,.2,1),
         opacity .8s ease .2s;
 
       z-index: 4;
-
       pointer-events: auto;
     }
 
-    .scene.open .card-content {
-      opacity: 1;
+    /* =========================
+       CARD CONTENT
+    ========================= */
 
-      transform:
-        translate3d(0,0,0);
+    .card-content {
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      padding: 42px 38px 38px;
+
+      text-align: right;
+
+      scrollbar-width: thin;
+      scrollbar-color: rgba(130,105,70,.35) transparent;
+
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+    }
+
+    .card-content::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .card-content::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .card-content::-webkit-scrollbar-thumb {
+      background: rgba(130,105,70,.35);
+      border-radius: 10px;
+    }
+
+    .bismillah {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+      color: #766449;
+      margin-bottom: 24px;
+    }
+
+    .title {
+      text-align: center;
+      font-size: clamp(23px, 5vw, 31px);
+      font-weight: 800;
+      color: #4c3d2a;
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #8b7658;
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+
+    .divider {
+      width: 85px;
+      height: 2px;
+      margin: 0 auto 28px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        #ad9368,
+        transparent
+      );
+    }
+
+    .intro {
+      font-size: 16px;
+      line-height: 2.25;
+      text-align: justify;
+      color: #4a443b;
+      margin-bottom: 28px;
+    }
+
+    .intro strong {
+      color: #3f3528;
+      font-weight: 700;
+    }
+
+    .info-box {
+      background: rgba(221,207,184,.25);
+      border: 1px solid rgba(142,115,76,.16);
+      border-radius: 12px;
+      padding: 18px 18px 8px;
+      margin-bottom: 26px;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 13px;
+      margin-bottom: 13px;
+      border-bottom: 1px solid rgba(142,115,76,.13);
+      font-size: 14.5px;
+      line-height: 1.9;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      min-width: 90px;
+      color: #806c4d;
+      font-weight: 700;
+    }
+
+    .info-value {
+      flex: 1;
+      color: #403a32;
+      font-weight: 500;
+    }
+
+    .thesis {
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #6e5a3d;
+      margin-bottom: 8px;
+    }
+
+    .thesis-title {
+      font-size: 15px;
+      line-height: 2;
+      color: #39342e;
+      text-align: justify;
+    }
+
+    .closing {
+      text-align: center;
+      font-size: 15px;
+      line-height: 2.2;
+      color: #5d554a;
+      margin-top: 28px;
+      margin-bottom: 18px;
+    }
+
+    .signature {
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #4c3d2a;
+      line-height: 2;
+      padding-bottom: 15px;
+    }
+
+    /* =========================
+       HINT
+    ========================= */
+
+    .hint {
+      position: absolute;
+      left: 50%;
+      bottom: -42px;
+      transform: translateX(-50%);
+
+      color: #75644c;
+      font-size: 12px;
+      white-space: nowrap;
+
+      opacity: .75;
+      transition: opacity .4s ease;
     }
 
     .scene.open .hint {
       opacity: 0;
     }
 
-    /* =================================================
+    /* =========================
+       DESKTOP
+    ========================= */
+
+    @media (min-width: 601px) {
+      .card-content {
+        padding-left: 42px;
+        padding-right: 42px;
+      }
+    }
+
+    /* =========================
        MOBILE
-       ================================================= */
+    ========================= */
 
     @media (max-width: 600px) {
 
       .page {
         min-height: 100svh;
-
-        padding:
-          20px
-          10px;
+        padding: 20px 10px;
+        align-items: flex-start;
+        padding-top: 28px;
       }
 
+      /*
+        مهم:
+        صحنه را بلندتر کرده‌ایم تا وقتی کارت باز می‌شود
+        قسمت بالای کارت از viewport خارج نشود.
+      */
       .scene {
         width: 88vw;
-
-        /*
-          کمی فضای بیشتر برای کارت
-          تا در موبایل بهتر کنترل شود
-        */
-        height: 300px;
+        height: 430px;
       }
 
       .envelope {
@@ -686,75 +480,57 @@
       }
 
       .recipient {
-        /*
-          نام روی پاکت پایین‌تر از قبل
-        */
         top: 72%;
-
         font-size: 18px;
-      }
-
-      .seal {
-        width: 43px;
-        height: 43px;
-
-        font-size: 12px;
       }
 
       .card {
         width: 94%;
-
         left: 3%;
-
-        /*
-          ارتفاع کارت به شکل کنترل‌شده
-        */
         height: min(78svh, 650px);
+        min-height: 430px;
+        border-radius: 15px;
       }
 
       .card-content {
-        padding:
-          32px
-          25px
-          30px;
+        padding: 32px 25px 30px;
       }
 
-      .card-name {
-        font-size: 20px;
+      .bismillah {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .title {
+        font-size: 23px;
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        font-size: 13px;
+        margin-bottom: 22px;
+      }
+
+      .divider {
+        margin-bottom: 22px;
       }
 
       .intro {
-        font-size: 13px;
-
-        line-height: 2.1;
-      }
-
-      .thesis-title {
-        font-size: 13px;
-
-        line-height: 1.95;
+        font-size: 14.5px;
+        line-height: 2.15;
       }
 
       .info-row {
-        font-size: 12px;
-      }
-
-      .info-label {
-        min-width: 82px;
-      }
-
-      .closing {
-        font-size: 12px;
+        font-size: 13.5px;
       }
 
       /*
-        کارت قبلاً -100px بالا می‌رفت.
-        حالا فقط 55px بالا می‌رود تا
-        بالای کارت از صفحه خارج نشود.
+        اصلاح اصلی:
+        کارت دیگر به -55px منتقل نمی‌شود.
+        فقط کمی پایین‌تر از نقطه خروج قرار می‌گیرد.
       */
       .scene.open .card {
-        transform:
-          translate3d(0,-55px,0);
+        transform: translate3d(0, 10px, 0) scale(1);
       }
 
       .hint {
@@ -762,12 +538,28 @@
       }
     }
 
-    /* ===== SMALL MOBILE ===== */
+    /* =========================
+       VERY SMALL PHONES
+    ========================= */
 
     @media (max-width: 380px) {
 
+      .page {
+        padding-top: 24px;
+      }
+
       .scene {
         width: 92vw;
+        height: 410px;
+      }
+
+      .envelope {
+        height: 235px;
+      }
+
+      .card {
+        height: min(76svh, 610px);
+        min-height: 410px;
       }
 
       .card-content {
@@ -781,218 +573,201 @@
 
       .info-label {
         display: block;
-
         margin-bottom: 2px;
       }
 
       /*
-        در گوشی‌های خیلی کوچک،
-        کارت کمی کمتر به بالا حرکت می‌کند.
+        برای گوشی‌های خیلی کوچک هم کارت بالا نمی‌رود.
       */
       .scene.open .card {
-        transform:
-          translate3d(0,-45px,0);
+        transform: translate3d(0, 5px, 0) scale(1);
       }
+    }
+
+    /* =========================
+       TOUCH / SELECTION
+    ========================= */
+
+    .scene,
+    .envelope,
+    .flap,
+    .recipient {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .card-content {
+      touch-action: pan-y;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="decor one"></div>
-  <div class="decor two"></div>
-
-  <div class="page">
+  <main class="page">
 
     <div class="scene" id="scene">
 
-      <!-- ================= CARD ================= -->
+      <!-- =========================
+           CARD
+      ========================== -->
 
-      <div class="card">
+      <section class="card" id="card">
+        <div class="card-content" id="cardContent">
 
-        <div class="card-content">
-
-          <div class="card-top">
-
-            <div class="small">
-              به نام خدا
-            </div>
-
-            <div
-              class="card-name"
-              id="cardRecipient">
-            </div>
-
-            <div class="gold-line"></div>
-
+          <div class="bismillah">
+            به نام خدا
           </div>
 
+          <h1 class="title">
+            دعوت‌نامه جلسه دفاع
+          </h1>
 
-          <div class="intro">
+          <div class="subtitle">
+            پایان‌نامه کارشناسی ارشد
+          </div>
 
+          <div class="divider"></div>
+
+          <p class="intro">
             پس از روزها و ماه‌ها آموختن، جست‌وجو کردن و ساختن،
-
-            <br>
-
             اکنون زمان آن رسیده است تا حاصل این مسیر را
-
-            <br>
-
             در جلسه دفاع از پایان‌نامه کارشناسی ارشد خود با شما به اشتراک بگذارم.
-
             <br>
-
             با افتخار و صمیمانه از شما دعوت می‌کنم
-
-            <br>
-
             تا در این لحظه ارزشمند، همراه و هم‌قدم من باشید.
+          </p>
+
+          <div class="info-box">
+
+            <div class="info-row">
+              <div class="info-label">
+                دانشجو
+              </div>
+              <div class="info-value">
+                یاسین بیرامی
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-label">
+                رشته
+              </div>
+              <div class="info-value">
+                مهندسی فناوری اطلاعات
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-label">
+                تاریخ و ساعت
+              </div>
+              <div class="info-value">
+                ۱۲ مهرماه، ساعت ۱۳:۰۰
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-label">
+                محل برگزاری
+              </div>
+              <div class="info-value">
+                دانشکده مهندسی، دانشکدگان فارابی دانشگاه تهران
+              </div>
+            </div>
 
           </div>
 
+          <div class="thesis">
 
-          <div class="title-box">
-
-            <div class="title-label">
+            <div class="section-title">
               عنوان پایان‌نامه
             </div>
 
             <div class="thesis-title">
-
-              «استفاده از الگوریتم‌های یادگیری ماشین به منظور
-
-              تشخیص مسمومیت داده‌ها از طریق تحلیل ویژگی‌های
-
-              آماری و ساختاری»
-
+              «استفاده از الگوریتم‌های یادگیری ماشین به منظور تشخیص
+              مسمومیت داده‌ها از طریق تحلیل ویژگی‌های آماری و ساختاری»
             </div>
 
           </div>
 
-
-          <div class="info">
-
-            <div class="info-row">
-
-              <div class="info-label">
-                تاریخ و ساعت
-              </div>
-
-              <div class="info-value">
-                ۱۲ مهرماه، ساعت ۱۳:۰۰
-              </div>
-
-            </div>
-
+          <div class="info-box">
 
             <div class="info-row">
-
-              <div class="info-label">
-                محل برگزاری
-              </div>
-
-              <div class="info-value">
-                دانشکده مهندسی، دانشکدگان فارابی دانشگاه تهران
-              </div>
-
-            </div>
-
-
-            <div class="info-row">
-
               <div class="info-label">
                 استاد راهنما
               </div>
-
               <div class="info-value">
                 دکتر کیهانی‌پور
               </div>
-
             </div>
 
-
             <div class="info-row">
-
               <div class="info-label">
                 استاد مشاور
               </div>
-
               <div class="info-value">
                 دکتر علینژاد
               </div>
-
             </div>
 
-
             <div class="info-row">
-
               <div class="info-label">
                 اساتید راهنما
               </div>
-
               <div class="info-value">
                 دکتر برهانی‌فرد و دکتر مهدوی
               </div>
-
             </div>
 
           </div>
 
-
-          <div class="closing">
-
-            حضور شما در این جلسه،
-
-            <br>
-
-            برای من ارزشمند و موجب خرسندی خواهد بود.
-
-          </div>
-
+          <p class="closing">
+            حضور شما در این جلسه، برای من ارزشمند و موجب خرسندی خواهد بود.
+          </p>
 
           <div class="signature">
             یاسین بیرامی
           </div>
 
         </div>
+      </section>
 
-      </div>
+      <!-- =========================
+           ENVELOPE
+      ========================== -->
 
+      <div class="envelope" id="envelope">
 
-      <!-- ================= ENVELOPE ================= -->
+        <div class="envelope-bottom">
 
-      <div class="envelope">
+          <div class="left-fold"></div>
+          <div class="right-fold"></div>
 
-        <div class="envelope-body"></div>
+          <div class="bottom-fold-shape"></div>
 
-        <div class="flap"></div>
-
-        <div
-          class="recipient"
-          id="recipient">
         </div>
 
-        <div class="seal">
-          YB
+        <div class="flap" id="flap"></div>
+
+        <div class="recipient" id="recipient">
+          جناب آقای مهمان گرامی
         </div>
 
       </div>
-
 
       <div class="hint">
-        برای مشاهده دعوت‌نامه روی پاکت کلیک کنید
+        برای باز کردن دعوت‌نامه لمس کنید
       </div>
 
     </div>
 
-  </div>
-
+  </main>
 
   <script>
 
-    /* ==========================================
-       لیست مهمان‌ها
-       ========================================== */
+    /* =========================
+       GUEST LIST
+    ========================== */
 
     const guests = {
 
@@ -1131,119 +906,55 @@
     };
 
 
-    /* ==========================================
-       گرفتن شخص از لینک
-       ========================================== */
+    /* =========================
+       PERSONALIZATION
+    ========================== */
 
-    const params =
-      new URLSearchParams(
-        window.location.search
-      );
+    const params = new URLSearchParams(window.location.search);
 
-    const personId =
-      params.get("person") ||
-      "ali-ahmadi";
+    const personId = params.get("person");
 
+    const recipient = document.getElementById("recipient");
 
-    /* ==========================================
-       پیدا کردن مهمان
-       ========================================== */
+    if (personId && guests[personId]) {
 
-    const recipient =
-      guests[personId];
+      const guest = guests[personId];
 
+      const formalTitle =
+        guest.gender === "female"
+          ? "سرکار خانم"
+          : "جناب آقای";
 
-    /* ==========================================
-       نمایش اطلاعات مهمان
-       ========================================== */
-
-    if (!recipient) {
-
-      document
-        .getElementById("recipient")
-        .textContent =
-        "مهمان گرامی";
-
-      document
-        .getElementById("cardRecipient")
-        .textContent =
-        "مهمان گرامی";
-
-    } else {
-
-      let fullName;
-
-
-      /* عنوان رسمی بر اساس جنسیت */
-
-      if (recipient.gender === "female") {
-
-        fullName =
-          "سرکار خانم " +
-          recipient.firstName +
-          " " +
-          recipient.lastName;
-
-      } else {
-
-        fullName =
-          "جناب آقای " +
-          recipient.firstName +
-          " " +
-          recipient.lastName;
-
-      }
-
-
-      /* نام روی پاکت */
-
-      document
-        .getElementById("recipient")
-        .textContent =
-        fullName;
-
-
-      /* نام روی کارت */
-
-      document
-        .getElementById("cardRecipient")
-        .textContent =
-        fullName;
+      recipient.textContent =
+        `${formalTitle} ${guest.firstName} ${guest.lastName}`;
 
     }
 
 
-    /* ==========================================
-       باز و بسته کردن پاکت
-       ========================================== */
+    /* =========================
+       OPEN / CLOSE
+    ========================== */
 
-    const scene =
-      document.getElementById("scene");
+    const scene = document.getElementById("scene");
+    const cardContent = document.getElementById("cardContent");
 
+    scene.addEventListener("click", function(event) {
 
-    scene.addEventListener(
-      "click",
-      function(event) {
+      /*
+        اگر کارت باز است و کاربر داخل محتوای کارت
+        لمس/کلیک کرده، نباید کارت بسته شود.
+      */
 
-        /*
-          اگر کارت باز است و کاربر داخل متن کارت
-          اسکرول می‌کند، پاکت بسته نشود.
-        */
-
-        if (
-          scene.classList.contains("open") &&
-          event.target.closest(".card-content")
-        ) {
-          return;
-        }
-
-
-        /* باز ↔ بسته */
-
-        scene.classList.toggle("open");
-
+      if (
+        scene.classList.contains("open") &&
+        cardContent.contains(event.target)
+      ) {
+        return;
       }
-    );
+
+      scene.classList.toggle("open");
+
+    });
 
   </script>
 
