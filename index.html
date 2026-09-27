@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
 
   <title>دعوت‌نامه جلسه دفاع یاسین بیرامی</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -25,92 +35,133 @@
 
     body {
       font-family: "Vazirmatn", sans-serif;
+
       background:
-        radial-gradient(circle at 50% 15%, rgba(255,255,255,.95), transparent 32%),
-        linear-gradient(135deg, #eee6d7, #d8cbb7);
+        radial-gradient(
+          circle at 50% 15%,
+          rgba(255,255,255,.95),
+          transparent 32%
+        ),
+        linear-gradient(
+          135deg,
+          #eee6d7,
+          #d8cbb7
+        );
+
       color: #302b24;
+
       overflow-x: hidden;
     }
+
+    /* =========================================================
+       PAGE
+    ========================================================= */
 
     .page {
       width: 100%;
       min-height: 100svh;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       padding: 30px 12px;
+
       overflow-x: hidden;
     }
 
+    /* =========================================================
+       SCENE
+    ========================================================= */
+
     .scene {
       position: relative;
+
       width: min(88vw, 540px);
       height: 390px;
+
       perspective: 1400px;
     }
 
-    /* =========================
+    /* =========================================================
        ENVELOPE
-    ========================= */
+    ========================================================= */
 
     .envelope {
       position: absolute;
+
       left: 0;
       bottom: 0;
+
       width: 100%;
       height: 350px;
+
       border-radius: 12px;
-      background: linear-gradient(145deg, #d8c7ab, #bca98b);
+
+      background:
+        linear-gradient(
+          145deg,
+          #d8c7ab,
+          #bca98b
+        );
+
       box-shadow:
-        0 25px 55px rgba(70, 53, 30, .25),
+        0 25px 55px rgba(70,53,30,.25),
         inset 0 1px 0 rgba(255,255,255,.5);
+
       overflow: visible;
+
+      /*
+        پاکت زیر کارت قرار می‌گیرد
+      */
       z-index: 5;
     }
 
     .envelope::before {
       content: "";
+
       position: absolute;
       inset: 0;
+
       border-radius: 12px;
+
       box-shadow:
-        inset 0 0 0 1px rgba(86, 64, 35, .18);
+        inset 0 0 0 1px rgba(86,64,35,.18);
+
       pointer-events: none;
     }
 
-    /* پایین پاکت */
+    /* =========================================================
+       ENVELOPE BOTTOM
+    ========================================================= */
 
     .envelope-bottom {
       position: absolute;
-      inset: 0;
-      z-index: 4;
-      overflow: hidden;
-      border-radius: 12px;
-    }
 
-    .envelope-bottom::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 0;
-      border-left: 50% solid transparent;
-      border-right: 50% solid transparent;
-      border-bottom: 0;
+      inset: 0;
+
+      z-index: 4;
+
+      overflow: hidden;
+
+      border-radius: 12px;
     }
 
     .left-fold,
     .right-fold {
       position: absolute;
+
       bottom: 0;
+
       width: 0;
       height: 0;
+
       z-index: 2;
     }
 
     .left-fold {
       left: 0;
+
       border-top: 175px solid transparent;
       border-left: 270px solid #c8b496;
       border-bottom: 175px solid transparent;
@@ -118,92 +169,135 @@
 
     .right-fold {
       right: 0;
+
       border-top: 175px solid transparent;
       border-right: 270px solid #c8b496;
       border-bottom: 175px solid transparent;
     }
 
-    .bottom-fold {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 0;
-      border-left: 50% solid transparent;
-      border-right: 50% solid transparent;
-      border-bottom: 0;
-      z-index: 3;
-    }
-
     .bottom-fold-shape {
       position: absolute;
+
       left: 50%;
       bottom: 0;
+
       width: 0;
       height: 0;
+
       transform: translateX(-50%);
+
       border-left: 270px solid transparent;
       border-right: 270px solid transparent;
       border-bottom: 175px solid #bda989;
+
       z-index: 3;
     }
 
-    /* =========================
+    /* =========================================================
        FLAP
-    ========================= */
+    ========================================================= */
 
     .flap {
       position: absolute;
+
       left: 0;
       top: 0;
+
       width: 100%;
       height: 63%;
-      background: linear-gradient(145deg, #dfceb0, #c4af8e);
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
+
+      background:
+        linear-gradient(
+          145deg,
+          #dfceb0,
+          #c4af8e
+        );
+
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+      );
+
       transform-origin: top center;
+
       transition:
         transform 1s cubic-bezier(.2,.8,.2,1),
-        z-index 0s linear 0.5s;
+        z-index 0s linear .5s;
+
+      /*
+        قبل از باز شدن جلوی پاکت است
+      */
       z-index: 7;
-      filter: drop-shadow(0 4px 5px rgba(60,45,25,.13));
+
+      filter:
+        drop-shadow(
+          0 4px 5px rgba(60,45,25,.13)
+        );
     }
 
     .flap::after {
       content: "";
+
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        145deg,
-        rgba(255,255,255,.18),
-        transparent 45%
-      );
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.18),
+          transparent 45%
+        );
+
       pointer-events: none;
     }
 
+    /*
+      بعد از باز شدن فلپ پشت کارت قرار می‌گیرد
+    */
+
     .scene.open .flap {
       transform: rotateX(180deg);
+
       z-index: 2;
+
       transition:
         transform 1s cubic-bezier(.2,.8,.2,1),
-        z-index 0s linear 0.5s;
+        z-index 0s linear .5s;
     }
 
-    /* =========================
+    /* =========================================================
        RECIPIENT NAME
-    ========================= */
+    ========================================================= */
 
     .recipient {
       position: absolute;
+
       z-index: 8;
+
       top: 72%;
       left: 50%;
+
       width: 90%;
-      transform: translate3d(-50%, -50%, 0);
+
+      transform:
+        translate3d(-50%, -50%, 0);
+
       text-align: center;
+
       color: #302b24;
-      font-size: clamp(18px, 3.5vw, 24px);
+
+      font-size:
+        clamp(
+          18px,
+          3.5vw,
+          24px
+        );
+
       font-weight: 700;
+
       white-space: nowrap;
+
       transition:
         opacity .45s ease,
         transform .45s ease;
@@ -211,20 +305,35 @@
 
     .scene.open .recipient {
       opacity: 0;
-      transform: translate3d(-50%, -40%, 0);
+
+      transform:
+        translate3d(
+          -50%,
+          -40%,
+          0
+        );
+
       pointer-events: none;
     }
 
-    /* =========================
+    /* =========================================================
        CARD
-    ========================= */
+    ========================================================= */
 
     .card {
       position: absolute;
+
       left: 5%;
       bottom: 0;
+
       width: 90%;
-      height: min(680px, 82vh);
+
+      height:
+        min(
+          680px,
+          82vh
+        );
+
       min-height: 420px;
 
       background:
@@ -235,7 +344,14 @@
         );
 
       border-radius: 16px;
-      border: 1px solid rgba(130,105,70,.18);
+
+      border:
+        1px solid rgba(
+          130,
+          105,
+          70,
+          .18
+        );
 
       box-shadow:
         0 30px 70px rgba(62,45,25,.28),
@@ -243,47 +359,80 @@
 
       opacity: 0;
 
-      transform: translate3d(0, 0, 0) scale(.96);
+      transform:
+        translate3d(0,0,0)
+        scale(.96);
 
       transition:
         transform .6s ease,
         opacity .45s ease;
 
-      z-index: 3;
+      /*
+        بسیار مهم:
+        کارت باید همیشه جلوی پاکت باشد.
+      */
+      z-index: 10;
+
       pointer-events: none;
+
       overflow: hidden;
     }
 
+    /* =========================================================
+       OPEN CARD
+    ========================================================= */
+
     .scene.open .card {
       opacity: 1;
-      transform: translate3d(0, -135px, 0) scale(1);
+
+      transform:
+        translate3d(
+          0,
+          -135px,
+          0
+        )
+        scale(1);
 
       transition:
         transform 1.4s cubic-bezier(.18,.82,.2,1),
         opacity .8s ease .2s;
 
-      z-index: 4;
+      /*
+        کارت روی تمام اجزای پاکت
+      */
+      z-index: 10;
+
       pointer-events: auto;
     }
 
-    /* =========================
+    /* =========================================================
        CARD CONTENT
-    ========================= */
+    ========================================================= */
 
     .card-content {
       height: 100%;
+
       overflow-y: auto;
       overflow-x: hidden;
 
-      padding: 42px 38px 38px;
+      padding:
+        42px
+        38px
+        38px;
 
       text-align: right;
 
       scrollbar-width: thin;
-      scrollbar-color: rgba(130,105,70,.35) transparent;
+
+      scrollbar-color:
+        rgba(130,105,70,.35)
+        transparent;
 
       -webkit-overflow-scrolling: touch;
+
       overscroll-behavior: contain;
+
+      touch-action: pan-y;
     }
 
     .card-content::-webkit-scrollbar {
@@ -295,75 +444,144 @@
     }
 
     .card-content::-webkit-scrollbar-thumb {
-      background: rgba(130,105,70,.35);
+      background:
+        rgba(130,105,70,.35);
+
       border-radius: 10px;
     }
 
+    /* =========================================================
+       CARD TEXT
+    ========================================================= */
+
     .bismillah {
       text-align: center;
+
       font-size: 20px;
+
       font-weight: 600;
+
       color: #766449;
+
       margin-bottom: 24px;
     }
 
     .title {
       text-align: center;
-      font-size: clamp(23px, 5vw, 31px);
+
+      font-size:
+        clamp(
+          23px,
+          5vw,
+          31px
+        );
+
       font-weight: 800;
+
       color: #4c3d2a;
+
       margin-bottom: 12px;
+
       line-height: 1.7;
     }
 
     .subtitle {
       text-align: center;
+
       color: #8b7658;
+
       font-size: 15px;
+
       margin-bottom: 28px;
     }
 
     .divider {
       width: 85px;
       height: 2px;
-      margin: 0 auto 28px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        #ad9368,
-        transparent
-      );
+
+      margin:
+        0 auto
+        28px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          #ad9368,
+          transparent
+        );
     }
 
     .intro {
       font-size: 16px;
+
       line-height: 2.25;
+
       text-align: justify;
+
       color: #4a443b;
+
       margin-bottom: 28px;
     }
 
     .intro strong {
       color: #3f3528;
+
       font-weight: 700;
     }
 
+    /* =========================================================
+       INFO BOX
+    ========================================================= */
+
     .info-box {
-      background: rgba(221,207,184,.25);
-      border: 1px solid rgba(142,115,76,.16);
+      background:
+        rgba(
+          221,
+          207,
+          184,
+          .25
+        );
+
+      border:
+        1px solid rgba(
+          142,
+          115,
+          76,
+          .16
+        );
+
       border-radius: 12px;
-      padding: 18px 18px 8px;
+
+      padding:
+        18px
+        18px
+        8px;
+
       margin-bottom: 26px;
     }
 
     .info-row {
       display: flex;
+
       align-items: flex-start;
+
       gap: 12px;
+
       padding-bottom: 13px;
+
       margin-bottom: 13px;
-      border-bottom: 1px solid rgba(142,115,76,.13);
+
+      border-bottom:
+        1px solid rgba(
+          142,
+          115,
+          76,
+          .13
+        );
+
       font-size: 14.5px;
+
       line-height: 1.9;
     }
 
@@ -373,15 +591,23 @@
 
     .info-label {
       min-width: 90px;
+
       color: #806c4d;
+
       font-weight: 700;
     }
 
     .info-value {
       flex: 1;
+
       color: #403a32;
+
       font-weight: 500;
     }
+
+    /* =========================================================
+       THESIS
+    ========================================================= */
 
     .thesis {
       margin-bottom: 24px;
@@ -389,125 +615,185 @@
 
     .section-title {
       font-size: 16px;
+
       font-weight: 800;
+
       color: #6e5a3d;
+
       margin-bottom: 8px;
     }
 
     .thesis-title {
       font-size: 15px;
+
       line-height: 2;
+
       color: #39342e;
+
       text-align: justify;
     }
 
+    /* =========================================================
+       CLOSING
+    ========================================================= */
+
     .closing {
       text-align: center;
+
       font-size: 15px;
+
       line-height: 2.2;
+
       color: #5d554a;
+
       margin-top: 28px;
+
       margin-bottom: 18px;
     }
 
     .signature {
       text-align: center;
+
       font-size: 16px;
+
       font-weight: 700;
+
       color: #4c3d2a;
+
       line-height: 2;
+
       padding-bottom: 15px;
     }
 
-    /* =========================
+    /* =========================================================
        HINT
-    ========================= */
+    ========================================================= */
 
     .hint {
       position: absolute;
+
       left: 50%;
       bottom: -42px;
-      transform: translateX(-50%);
+
+      transform:
+        translateX(-50%);
 
       color: #75644c;
+
       font-size: 12px;
+
       white-space: nowrap;
 
       opacity: .75;
-      transition: opacity .4s ease;
+
+      transition:
+        opacity .4s ease;
     }
 
     .scene.open .hint {
       opacity: 0;
     }
 
-    /* =========================
+    /* =========================================================
        DESKTOP
-    ========================= */
+    ========================================================= */
 
     @media (min-width: 601px) {
+
       .card-content {
         padding-left: 42px;
         padding-right: 42px;
       }
+
     }
 
-    /* =========================
+    /* =========================================================
        MOBILE
-    ========================= */
+    ========================================================= */
 
     @media (max-width: 600px) {
 
       .page {
         min-height: 100svh;
-        padding: 20px 10px;
+
+        padding:
+          24px
+          10px
+          35px;
+
+        /*
+          بالای صفحه فضای بیشتری می‌دهیم
+        */
         align-items: flex-start;
-        padding-top: 28px;
       }
 
       /*
-        مهم:
-        صحنه را بلندتر کرده‌ایم تا وقتی کارت باز می‌شود
-        قسمت بالای کارت از viewport خارج نشود.
+        صحنه بلندتر شده تا کارت
+        فضای کافی برای باز شدن داشته باشد.
       */
+
       .scene {
         width: 88vw;
-        height: 430px;
+
+        height: 460px;
       }
 
       .envelope {
         height: 250px;
       }
 
+      /*
+        نام مهمان پایین‌تر از فلپ
+      */
+
       .recipient {
         top: 72%;
+
         font-size: 18px;
       }
 
+      /* =====================================================
+         MOBILE CARD
+      ===================================================== */
+
       .card {
         width: 94%;
+
         left: 3%;
-        height: min(78svh, 650px);
+
+        height:
+          min(
+            78svh,
+            650px
+          );
+
         min-height: 430px;
-        border-radius: 15px;
+
+        z-index: 10;
       }
 
       .card-content {
-        padding: 32px 25px 30px;
+        padding:
+          32px
+          25px
+          30px;
       }
 
       .bismillah {
         font-size: 18px;
+
         margin-bottom: 20px;
       }
 
       .title {
         font-size: 23px;
+
         margin-bottom: 8px;
       }
 
       .subtitle {
         font-size: 13px;
+
         margin-bottom: 22px;
       }
 
@@ -517,6 +803,7 @@
 
       .intro {
         font-size: 14.5px;
+
         line-height: 2.15;
       }
 
@@ -525,32 +812,48 @@
       }
 
       /*
-        اصلاح اصلی:
-        کارت دیگر به -55px منتقل نمی‌شود.
-        فقط کمی پایین‌تر از نقطه خروج قرار می‌گیرد.
+        =====================================================
+        اصلاح اصلی موبایل
+        =====================================================
+
+        کارت پایین‌تر قرار می‌گیرد.
+        همچنین z-index بالا باعث می‌شود
+        هرگز پشت پاکت نرود.
       */
+
       .scene.open .card {
-        transform: translate3d(0, 10px, 0) scale(1);
+
+        transform:
+          translate3d(
+            0,
+            45px,
+            0
+          )
+          scale(1);
+
+        z-index: 10;
       }
 
       .hint {
         bottom: -30px;
       }
+
     }
 
-    /* =========================
+    /* =========================================================
        VERY SMALL PHONES
-    ========================= */
+    ========================================================= */
 
     @media (max-width: 380px) {
 
       .page {
-        padding-top: 24px;
+        padding-top: 20px;
       }
 
       .scene {
         width: 92vw;
-        height: 410px;
+
+        height: 445px;
       }
 
       .envelope {
@@ -558,8 +861,15 @@
       }
 
       .card {
-        height: min(76svh, 610px);
+        height:
+          min(
+            76svh,
+            610px
+          );
+
         min-height: 410px;
+
+        z-index: 10;
       }
 
       .card-content {
@@ -573,20 +883,34 @@
 
       .info-label {
         display: block;
+
         margin-bottom: 2px;
       }
 
       /*
-        برای گوشی‌های خیلی کوچک هم کارت بالا نمی‌رود.
+        روی گوشی خیلی کوچک نیز
+        کارت پایین‌تر می‌ماند
+        ولی جلوی پاکت است.
       */
+
       .scene.open .card {
-        transform: translate3d(0, 5px, 0) scale(1);
+
+        transform:
+          translate3d(
+            0,
+            35px,
+            0
+          )
+          scale(1);
+
+        z-index: 10;
       }
+
     }
 
-    /* =========================
-       TOUCH / SELECTION
-    ========================= */
+    /* =========================================================
+       TOUCH
+    ========================================================= */
 
     .scene,
     .envelope,
@@ -595,87 +919,128 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    .card-content {
-      touch-action: pan-y;
-    }
   </style>
 </head>
+
 
 <body>
 
   <main class="page">
 
-    <div class="scene" id="scene">
+    <div
+      class="scene"
+      id="scene"
+    >
 
-      <!-- =========================
-           CARD
-      ========================== -->
+      <!-- =====================================================
+           INVITATION CARD
+      ====================================================== -->
 
-      <section class="card" id="card">
-        <div class="card-content" id="cardContent">
+      <section
+        class="card"
+        id="card"
+      >
+
+        <div
+          class="card-content"
+          id="cardContent"
+        >
 
           <div class="bismillah">
             به نام خدا
           </div>
 
+
           <h1 class="title">
             دعوت‌نامه جلسه دفاع
           </h1>
+
 
           <div class="subtitle">
             پایان‌نامه کارشناسی ارشد
           </div>
 
+
           <div class="divider"></div>
 
+
           <p class="intro">
+
             پس از روزها و ماه‌ها آموختن، جست‌وجو کردن و ساختن،
             اکنون زمان آن رسیده است تا حاصل این مسیر را
             در جلسه دفاع از پایان‌نامه کارشناسی ارشد خود با شما به اشتراک بگذارم.
+
             <br>
+
             با افتخار و صمیمانه از شما دعوت می‌کنم
             تا در این لحظه ارزشمند، همراه و هم‌قدم من باشید.
+
           </p>
+
+
+          <!-- =================================================
+               GENERAL INFO
+          ================================================== -->
 
           <div class="info-box">
 
             <div class="info-row">
+
               <div class="info-label">
                 دانشجو
               </div>
+
               <div class="info-value">
                 یاسین بیرامی
               </div>
+
             </div>
 
+
             <div class="info-row">
+
               <div class="info-label">
                 رشته
               </div>
+
               <div class="info-value">
                 مهندسی فناوری اطلاعات
               </div>
+
             </div>
 
+
             <div class="info-row">
+
               <div class="info-label">
                 تاریخ و ساعت
               </div>
+
               <div class="info-value">
                 ۱۲ مهرماه، ساعت ۱۳:۰۰
               </div>
+
             </div>
 
+
             <div class="info-row">
+
               <div class="info-label">
                 محل برگزاری
               </div>
+
               <div class="info-value">
                 دانشکده مهندسی، دانشکدگان فارابی دانشگاه تهران
               </div>
+
             </div>
 
           </div>
+
+
+          <!-- =================================================
+               THESIS
+          ================================================== -->
 
           <div class="thesis">
 
@@ -684,76 +1049,117 @@
             </div>
 
             <div class="thesis-title">
+
               «استفاده از الگوریتم‌های یادگیری ماشین به منظور تشخیص
               مسمومیت داده‌ها از طریق تحلیل ویژگی‌های آماری و ساختاری»
+
             </div>
 
           </div>
+
+
+          <!-- =================================================
+               PROFESSORS
+          ================================================== -->
 
           <div class="info-box">
 
             <div class="info-row">
+
               <div class="info-label">
                 استاد راهنما
               </div>
+
               <div class="info-value">
                 دکتر کیهانی‌پور
               </div>
+
             </div>
 
+
             <div class="info-row">
+
               <div class="info-label">
                 استاد مشاور
               </div>
+
               <div class="info-value">
                 دکتر علینژاد
               </div>
+
             </div>
 
+
             <div class="info-row">
+
               <div class="info-label">
                 اساتید راهنما
               </div>
+
               <div class="info-value">
                 دکتر برهانی‌فرد و دکتر مهدوی
               </div>
+
             </div>
 
           </div>
 
+
+          <!-- =================================================
+               CLOSING
+          ================================================== -->
+
           <p class="closing">
+
             حضور شما در این جلسه، برای من ارزشمند و موجب خرسندی خواهد بود.
+
           </p>
+
 
           <div class="signature">
             یاسین بیرامی
           </div>
 
         </div>
+
       </section>
 
-      <!-- =========================
-           ENVELOPE
-      ========================== -->
 
-      <div class="envelope" id="envelope">
+      <!-- =====================================================
+           ENVELOPE
+      ====================================================== -->
+
+      <div
+        class="envelope"
+        id="envelope"
+      >
 
         <div class="envelope-bottom">
 
           <div class="left-fold"></div>
+
           <div class="right-fold"></div>
 
           <div class="bottom-fold-shape"></div>
 
         </div>
 
-        <div class="flap" id="flap"></div>
 
-        <div class="recipient" id="recipient">
+        <div
+          class="flap"
+          id="flap"
+        ></div>
+
+
+        <div
+          class="recipient"
+          id="recipient"
+        >
           جناب آقای مهمان گرامی
         </div>
 
       </div>
+
 
       <div class="hint">
         برای باز کردن دعوت‌نامه لمس کنید
@@ -763,11 +1169,12 @@
 
   </main>
 
+
   <script>
 
-    /* =========================
+    /* =========================================================
        GUEST LIST
-    ========================== */
+    ========================================================= */
 
     const guests = {
 
@@ -906,24 +1313,40 @@
     };
 
 
-    /* =========================
-       PERSONALIZATION
-    ========================== */
+    /* =========================================================
+       PERSONALIZED RECIPIENT
+    ========================================================= */
 
-    const params = new URLSearchParams(window.location.search);
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
 
-    const personId = params.get("person");
 
-    const recipient = document.getElementById("recipient");
+    const personId =
+      params.get("person");
 
-    if (personId && guests[personId]) {
 
-      const guest = guests[personId];
+    const recipient =
+      document.getElementById(
+        "recipient"
+      );
+
+
+    if (
+      personId &&
+      guests[personId]
+    ) {
+
+      const guest =
+        guests[personId];
+
 
       const formalTitle =
         guest.gender === "female"
           ? "سرکار خانم"
           : "جناب آقای";
+
 
       recipient.textContent =
         `${formalTitle} ${guest.firstName} ${guest.lastName}`;
@@ -931,32 +1354,46 @@
     }
 
 
-    /* =========================
+    /* =========================================================
        OPEN / CLOSE
-    ========================== */
+    ========================================================= */
 
-    const scene = document.getElementById("scene");
-    const cardContent = document.getElementById("cardContent");
+    const scene =
+      document.getElementById(
+        "scene"
+      );
 
-    scene.addEventListener("click", function(event) {
 
-      /*
-        اگر کارت باز است و کاربر داخل محتوای کارت
-        لمس/کلیک کرده، نباید کارت بسته شود.
-      */
+    const cardContent =
+      document.getElementById(
+        "cardContent"
+      );
 
-      if (
-        scene.classList.contains("open") &&
-        cardContent.contains(event.target)
-      ) {
-        return;
+
+    scene.addEventListener(
+      "click",
+      function(event) {
+
+        /*
+          وقتی کارت باز است،
+          لمس داخل متن نباید باعث بسته شدن پاکت شود.
+        */
+
+        if (
+          scene.classList.contains("open") &&
+          cardContent.contains(event.target)
+        ) {
+          return;
+        }
+
+
+        scene.classList.toggle("open");
+
       }
-
-      scene.classList.toggle("open");
-
-    });
+    );
 
   </script>
 
 </body>
 </html>
+
