@@ -1,1156 +1,1251 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>دعوت‌نامه جلسه دفاع</title>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  >
+
+  <title>دعوت‌نامه جلسه دفاع</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+    :root {
+      --gold: #c9a45c;
+      --gold-dark: #98783d;
+      --ink: #25211c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: "Vazirmatn", sans-serif;
+      color: var(--ink);
+
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(201,164,92,.13),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(201,164,92,.09),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #f7f4ed,
+          #e9e3d7
+        );
+
+      overflow-x: hidden;
+    }
+
+    /* جلوگیری از اسکرول ناخواسته */
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    /* ===== BACKGROUND ===== */
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+
+      background-image:
+        radial-gradient(
+          #b9aa8c .6px,
+          transparent .6px
+        );
+
+      background-size: 18px 18px;
+    }
+
+    .decor {
+      position: fixed;
+      border: 1px solid rgba(152,120,61,.15);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .decor.one {
+      width: 480px;
+      height: 480px;
+      top: -220px;
+      right: -160px;
+    }
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+    .decor.two {
+      width: 360px;
+      height: 360px;
+      bottom: -190px;
+      left: -120px;
+    }
 
-:root {
-  --gold: #c9a45c;
-  --gold-dark: #98783d;
-  --ink: #25211c;
-}
+    /* ===== PAGE ===== */
 
-* {
-  box-sizing: border-box;
-}
+    .page {
+      width: 100%;
+      min-height: 100vh;
 
-html,
-body {
-  margin: 0;
-  width: 100%;
-  min-height: 100%;
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-body {
-  font-family: "Vazirmatn", sans-serif;
-  color: var(--ink);
+      padding: 30px 15px;
+    }
 
-  background:
-    radial-gradient(circle at 20% 20%, rgba(201,164,92,.13), transparent 28%),
-    radial-gradient(circle at 80% 80%, rgba(201,164,92,.09), transparent 30%),
-    linear-gradient(135deg, #f7f4ed, #e9e3d7);
+    /* ===== SCENE ===== */
 
-  overflow-x: hidden;
-}
+    .scene {
+      position: relative;
 
-/* جلوگیری از اسکرول ناخواسته */
+      width: min(88vw, 540px);
+      height: 390px;
 
-body.no-scroll {
-  overflow: hidden;
-}
+      perspective: 1400px;
+      cursor: pointer;
 
-/* ===== BACKGROUND ===== */
+      touch-action: manipulation;
+    }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: .22;
+    /* ===== CARD ===== */
 
-  background-image:
-    radial-gradient(#b9aa8c .6px, transparent .6px);
+    .card {
+      position: absolute;
+      z-index: 3;
 
-  background-size: 18px 18px;
-}
+      width: 88%;
+      height: 91%;
 
-.decor {
-  position: fixed;
-  border: 1px solid rgba(152,120,61,.15);
-  border-radius: 50%;
-  pointer-events: none;
-}
+      left: 6%;
+      bottom: 6%;
 
-.decor.one {
-  width: 480px;
-  height: 480px;
-  top: -220px;
-  right: -160px;
-}
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.98),
+          rgba(248,244,234,.98)
+        );
 
-.decor.two {
-  width: 360px;
-  height: 360px;
-  bottom: -190px;
-  left: -120px;
-}
+      border-radius: 5px;
 
-/* ===== PAGE ===== */
+      box-shadow:
+        0 25px 60px rgba(55,45,30,.18),
+        0 5px 15px rgba(55,45,30,.12);
 
-.page {
-  width: 100%;
-  min-height: 100vh;
+      overflow: hidden;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+      opacity: 0;
 
-  padding: 30px 15px;
-}
+      transform:
+        translate3d(0,45px,0)
+        scale(.97);
 
-/* ===== SCENE ===== */
+      transition:
+        transform 1.25s cubic-bezier(.22,.8,.25,1),
+        opacity .7s ease;
 
-.scene {
-  position: relative;
+      pointer-events: none;
+    }
 
-  width: min(88vw, 540px);
-  height: 390px;
+    /* کادر داخلی کارت */
 
-  perspective: 1400px;
+    .card::before {
+      content: "";
 
-  cursor: pointer;
+      position: absolute;
+      inset: 12px;
 
-  touch-action: manipulation;
-}
+      border:
+        1px solid rgba(201,164,92,.45);
 
-/* ===== CARD ===== */
+      pointer-events: none;
+    }
 
-.card {
-  position: absolute;
+    /* ستاره پایین */
 
-  z-index: 3;
+    .card::after {
+      content: "✦";
 
-  width: 88%;
-  height: 91%;
+      position: absolute;
 
-  left: 6%;
-  bottom: 6%;
+      left: 50%;
+      bottom: 12px;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.98),
-      rgba(248,244,234,.98)
-    );
+      transform:
+        translateX(-50%);
 
-  border-radius: 5px;
+      color: var(--gold);
+      font-size: 13px;
 
-  box-shadow:
-    0 25px 60px rgba(55,45,30,.18),
-    0 5px 15px rgba(55,45,30,.12);
+      pointer-events: none;
+    }
 
-  overflow: hidden;
+    /* ===== CARD CONTENT ===== */
 
-  opacity: 0;
+    .card-content {
+      position: relative;
 
-  transform:
-    translate3d(0, 45px, 0)
-    scale(.97);
+      height: 100%;
 
-  transition:
-    transform 1.25s cubic-bezier(.22,.8,.25,1),
-    opacity .7s ease;
+      padding:
+        38px
+        42px
+        35px;
 
-  pointer-events: none;
-}
+      overflow-y: auto;
+      overflow-x: hidden;
 
-/* کادر داخلی کارت */
+      -webkit-overflow-scrolling: touch;
 
-.card::before {
-  content: "";
+      scrollbar-width: thin;
 
-  position: absolute;
-  inset: 12px;
+      opacity: 0;
 
-  border: 1px solid rgba(201,164,92,.45);
+      transform:
+        translate3d(0,20px,0);
 
-  pointer-events: none;
-}
+      transition:
+        opacity .8s ease .75s,
+        transform .8s ease .75s;
+    }
 
-/* ستاره پایین */
+    .card-content::-webkit-scrollbar {
+      width: 3px;
+    }
 
-.card::after {
-  content: "✦";
+    .card-content::-webkit-scrollbar-thumb {
+      background:
+        rgba(201,164,92,.5);
+    }
 
-  position: absolute;
+    /* ===== HEADER ===== */
 
-  left: 50%;
-  bottom: 12px;
+    .card-top {
+      text-align: center;
+      margin-bottom: 22px;
+    }
 
-  transform: translateX(-50%);
+    .card-top .small {
+      font-size: 11px;
+      color: var(--gold-dark);
+      margin-bottom: 7px;
+    }
 
-  color: var(--gold);
-  font-size: 13px;
+    .card-name {
+      font-size: clamp(20px,4vw,25px);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
 
-  pointer-events: none;
-}
+    .gold-line {
+      width: 55px;
+      height: 2px;
 
-/* ===== CARD CONTENT ===== */
+      background: var(--gold);
 
-.card-content {
-  position: relative;
+      margin: auto;
+    }
 
-  height: 100%;
+    /* ===== INTRO ===== */
 
-  padding: 38px 42px 35px;
+    .intro {
+      text-align: center;
 
-  overflow-y: auto;
-  overflow-x: hidden;
+      font-size: 14px;
+      line-height: 2.15;
 
-  -webkit-overflow-scrolling: touch;
+      color: #4d473f;
 
-  scrollbar-width: thin;
+      margin-bottom: 20px;
+    }
 
-  opacity: 0;
+    /* ===== TITLE ===== */
 
-  transform: translate3d(0,20px,0);
+    .title-box {
+      border-right:
+        3px solid var(--gold);
 
-  transition:
-    opacity .8s ease .75s,
-    transform .8s ease .75s;
-}
+      background:
+        rgba(201,164,92,.07);
 
-.card-content::-webkit-scrollbar {
-  width: 3px;
-}
+      padding:
+        13px
+        16px;
 
-.card-content::-webkit-scrollbar-thumb {
-  background: rgba(201,164,92,.5);
-}
+      margin:
+        20px 0;
 
-/* ===== HEADER ===== */
+      border-radius: 3px;
+    }
 
-.card-top {
-  text-align: center;
-  margin-bottom: 22px;
-}
+    .title-label {
+      font-size: 11px;
+      font-weight: 800;
 
-.card-top .small {
-  font-size: 11px;
-  color: var(--gold-dark);
-  margin-bottom: 7px;
-}
+      color: var(--gold-dark);
 
-.card-name {
-  font-size: clamp(20px,4vw,25px);
-  font-weight: 700;
-  margin-bottom: 8px;
-}
+      margin-bottom: 7px;
+    }
 
-.gold-line {
-  width: 55px;
-  height: 2px;
-  background: var(--gold);
-  margin: auto;
-}
+    .thesis-title {
+      font-size: 14px;
+      line-height: 2;
+      font-weight: 600;
+    }
 
-/* ===== INTRO ===== */
+    /* ===== INFO ===== */
 
-.intro {
-  text-align: center;
+    .info {
+      margin-top: 18px;
+    }
 
-  font-size: 14px;
-  line-height: 2.15;
+    .info-row {
+      display: flex;
 
-  color: #4d473f;
+      align-items: flex-start;
 
-  margin-bottom: 20px;
-}
+      gap: 12px;
 
-/* ===== TITLE ===== */
+      padding: 8px 0;
 
-.title-box {
-  border-right: 3px solid var(--gold);
+      border-bottom:
+        1px solid rgba(100,90,70,.10);
 
-  background: rgba(201,164,92,.07);
+      font-size: 13px;
+      line-height: 1.8;
+    }
 
-  padding: 13px 16px;
+    .info-label {
+      min-width: 95px;
 
-  margin: 20px 0;
+      font-weight: 800;
 
-  border-radius: 3px;
-}
+      color: var(--gold-dark);
+    }
 
-.title-label {
-  font-size: 11px;
-  font-weight: 800;
+    .info-value {
+      flex: 1;
+    }
 
-  color: var(--gold-dark);
+    /* ===== CLOSING ===== */
 
-  margin-bottom: 7px;
-}
+    .closing {
+      margin-top: 22px;
 
-.thesis-title {
-  font-size: 14px;
-  line-height: 2;
+      text-align: center;
 
-  font-weight: 600;
-}
+      font-size: 13px;
+      line-height: 2;
 
-/* ===== INFO ===== */
+      color: #4c473f;
+    }
 
-.info {
-  margin-top: 18px;
-}
+    .signature {
+      text-align: center;
 
-.info-row {
-  display: flex;
-  align-items: flex-start;
+      margin-top: 16px;
 
-  gap: 12px;
+      font-weight: 700;
 
-  padding: 8px 0;
+      color: var(--gold-dark);
 
-  border-bottom:
-    1px solid rgba(100,90,70,.10);
+      font-size: 14px;
+    }
 
-  font-size: 13px;
-  line-height: 1.8;
-}
+    /* ===== ENVELOPE ===== */
 
-.info-label {
-  min-width: 95px;
+    .envelope {
+      position: absolute;
 
-  font-weight: 800;
+      left: 0;
+      right: 0;
+      bottom: 0;
 
-  color: var(--gold-dark);
-}
+      width: 100%;
+      height: 350px;
 
-.info-value {
-  flex: 1;
-}
+      transform-style: preserve-3d;
+    }
 
-/* ===== CLOSING ===== */
+    .envelope-body {
+      position: absolute;
+      inset: 0;
 
-.closing {
-  margin-top: 22px;
+      background:
+        linear-gradient(
+          145deg,
+          #e7dcc7,
+          #cbb998
+        );
 
-  text-align: center;
+      border-radius:
+        5px
+        5px
+        10px
+        10px;
 
-  font-size: 13px;
-  line-height: 2;
+      box-shadow:
+        0 22px 45px rgba(50,40,25,.23),
+        0 3px 7px rgba(50,40,25,.12);
 
-  color: #4c473f;
-}
+      overflow: hidden;
+    }
 
-.signature {
-  text-align: center;
+    .envelope-body::before {
+      content: "";
 
-  margin-top: 16px;
+      position: absolute;
+      inset: 0;
 
-  font-weight: 700;
+      background:
+        linear-gradient(
+          35deg,
+          transparent 49.5%,
+          rgba(100,80,50,.13) 50%,
+          transparent 50.5%
+        ),
+        linear-gradient(
+          -35deg,
+          transparent 49.5%,
+          rgba(100,80,50,.13) 50%,
+          transparent 50.5%
+        );
+    }
 
-  color: var(--gold-dark);
+    /* ===== FLAP ===== */
 
-  font-size: 14px;
-}
+    .flap {
+      position: absolute;
 
-/* ===== ENVELOPE ===== */
+      z-index: 5;
 
-.envelope {
-  position: absolute;
+      top: 0;
+      left: 0;
 
-  left: 0;
-  right: 0;
-  bottom: 0;
+      width: 100%;
+      height: 63%;
 
-  width: 100%;
-  height: 350px;
+      background:
+        linear-gradient(
+          160deg,
+          #efe6d5,
+          #d4c3a3
+        );
 
-  transform-style: preserve-3d;
-}
+      clip-path:
+        polygon(
+          0 0,
+          100% 0,
+          50% 100%
+        );
 
-.envelope-body {
-  position: absolute;
+      transform-origin: top center;
 
-  inset: 0;
+      transform:
+        rotateX(0deg);
 
-  background:
-    linear-gradient(
-      145deg,
-      #e7dcc7,
-      #cbb998
-    );
+      transition:
+        transform 1.2s cubic-bezier(.2,.75,.2,1);
 
-  border-radius: 5px 5px 10px 10px;
+      backface-visibility: hidden;
+    }
 
-  box-shadow:
-    0 22px 45px rgba(50,40,25,.23),
-    0 3px 7px rgba(50,40,25,.12);
+    .flap::after {
+      content: "";
 
-  overflow: hidden;
-}
+      position: absolute;
 
-.envelope-body::before {
-  content: "";
+      inset: 2px;
 
-  position: absolute;
+      clip-path:
+        polygon(
+          0 0,
+          100% 0,
+          50% 97%
+        );
 
-  inset: 0;
+      border-top:
+        1px solid rgba(255,255,255,.45);
+    }
 
-  background:
-    linear-gradient(
-      35deg,
-      transparent 49.5%,
-      rgba(100,80,50,.13) 50%,
-      transparent 50.5%
-    ),
-    linear-gradient(
-      -35deg,
-      transparent 49.5%,
-      rgba(100,80,50,.13) 50%,
-      transparent 50.5%
-    );
-}
+    /* ===== RECIPIENT ===== */
 
-/* ===== FLAP ===== */
+    .recipient {
+      position: absolute;
 
-.flap {
-  position: absolute;
+      z-index: 6;
 
-  z-index: 5;
+      /* قبلاً 67% بود؛ کمی پایین‌تر آمده */
+      top: 72%;
 
-  top: 0;
-  left: 0;
+      left: 50%;
 
-  width: 100%;
-  height: 63%;
+      width: 90%;
 
-  background:
-    linear-gradient(
-      160deg,
-      #efe6d5,
-      #d4c3a3
-    );
+      transform:
+        translate3d(-50%,-50%,0);
 
-  clip-path:
-    polygon(
-      0 0,
-      100% 0,
-      50% 100%
-    );
+      text-align: center;
 
-  transform-origin: top center;
+      color: #302b24;
 
-  transform:
-    rotateX(0deg);
+      font-size:
+        clamp(
+          18px,
+          3.5vw,
+          24px
+        );
 
-  transition:
-    transform 1.2s cubic-bezier(.2,.75,.2,1);
+      font-weight: 700;
 
-  backface-visibility: hidden;
-}
+      white-space: nowrap;
 
-.flap::after {
-  content: "";
+      transition:
+        opacity .45s ease,
+        transform .45s ease;
+    }
 
-  position: absolute;
+    .recipient::after {
+      content: "";
 
-  inset: 2px;
+      display: block;
 
-  clip-path:
-    polygon(
-      0 0,
-      100% 0,
-      50% 97%
-    );
+      width: 55px;
+      height: 2px;
 
-  border-top:
-    1px solid rgba(255,255,255,.45);
-}
+      background: var(--gold);
 
-/* ===== RECIPIENT ===== */
+      margin:
+        10px auto 0;
+    }
 
-.recipient {
-  position: absolute;
+    /* ===== SEAL ===== */
 
-  z-index: 6;
+    .seal {
+      position: absolute;
 
-  top: 67%;
-  left: 50%;
+      z-index: 7;
 
-  width: 90%;
+      bottom: 13px;
+      left: 50%;
 
-  transform:
-    translate3d(-50%,-50%,0);
+      width: 48px;
+      height: 48px;
 
-  text-align: center;
+      transform:
+        translate3d(-50%,0,0);
 
-  color: #302b24;
+      border-radius: 50%;
 
-  font-size: clamp(18px,3.5vw,24px);
+      display: flex;
 
-  font-weight: 700;
+      align-items: center;
+      justify-content: center;
 
-  white-space: nowrap;
+      background:
+        radial-gradient(
+          circle,
+          #e6c77d,
+          #aa823f
+        );
 
-  transition:
-    opacity .45s ease,
-    transform .45s ease;
-}
+      color: white;
 
-.recipient::after {
-  content: "";
+      font-size: 13px;
+      font-weight: 800;
 
-  display: block;
+      border:
+        2px solid rgba(255,255,255,.55);
 
-  width: 55px;
-  height: 2px;
+      box-shadow:
+        0 4px 12px rgba(50,40,20,.22);
 
-  background: var(--gold);
+      transition:
+        opacity .5s ease,
+        transform .6s ease;
+    }
 
-  margin: 10px auto 0;
-}
+    /* ===== HINT ===== */
 
-/* ===== SEAL ===== */
+    .hint {
+      position: absolute;
 
-.seal {
-  position: absolute;
+      bottom: -34px;
+      left: 50%;
 
-  z-index: 7;
+      transform:
+        translate3d(-50%,0,0);
 
-  bottom: 13px;
-  left: 50%;
+      color: #7c7367;
 
-  width: 48px;
-  height: 48px;
+      font-size: 11px;
 
-  transform:
-    translate3d(-50%,0,0);
+      white-space: nowrap;
 
-  border-radius: 50%;
+      transition:
+        opacity .5s ease;
+    }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    /* =================================================
+       OPEN
+       ================================================= */
 
-  background:
-    radial-gradient(
-      circle,
-      #e6c77d,
-      #aa823f
-    );
+    .scene.open .flap {
+      transform:
+        rotateX(180deg);
 
-  color: white;
+      z-index: 1;
+    }
 
-  font-size: 13px;
-  font-weight: 800;
+    .scene.open .recipient {
+      opacity: 0;
 
-  border:
-    2px solid rgba(255,255,255,.55);
+      transform:
+        translate3d(-50%,-40%,0)
+        scale(.95);
+    }
 
-  box-shadow:
-    0 4px 12px rgba(50,40,20,.22);
+    .scene.open .seal {
+      opacity: 0;
 
-  transition:
-    opacity .5s ease,
-    transform .6s ease;
-}
+      transform:
+        translate3d(-50%,0,0)
+        scale(.7);
+    }
 
-/* ===== HINT ===== */
+    .scene.open .card {
+      opacity: 1;
 
-.hint {
-  position: absolute;
+      transform:
+        translate3d(0,-135px,0)
+        scale(1);
 
-  bottom: -34px;
-  left: 50%;
+      transition:
+        transform 1.4s cubic-bezier(.18,.82,.2,1),
+        opacity .8s ease .2s;
 
-  transform:
-    translate3d(-50%,0,0);
+      z-index: 4;
 
-  color: #7c7367;
+      pointer-events: auto;
+    }
 
-  font-size: 11px;
+    .scene.open .card-content {
+      opacity: 1;
 
-  white-space: nowrap;
+      transform:
+        translate3d(0,0,0);
+    }
 
-  transition:
-    opacity .5s ease;
-}
+    .scene.open .hint {
+      opacity: 0;
+    }
 
-/* =================================================
-   OPEN
-   ================================================= */
+    /* =================================================
+       MOBILE
+       ================================================= */
 
-.scene.open .flap {
-  transform:
-    rotateX(180deg);
+    @media (max-width: 600px) {
 
-  z-index: 1;
-}
+      .page {
+        min-height: 100svh;
 
-.scene.open .recipient {
-  opacity: 0;
+        padding:
+          20px
+          10px;
+      }
 
-  transform:
-    translate3d(-50%,-40%,0)
-    scale(.95);
-}
+      .scene {
+        width: 88vw;
 
-.scene.open .seal {
-  opacity: 0;
+        /*
+          کمی فضای بیشتر برای کارت
+          تا در موبایل بهتر کنترل شود
+        */
+        height: 300px;
+      }
 
-  transform:
-    translate3d(-50%,0,0)
-    scale(.7);
-}
+      .envelope {
+        height: 250px;
+      }
 
-.scene.open .card {
-  opacity: 1;
+      .recipient {
+        /*
+          نام روی پاکت پایین‌تر از قبل
+        */
+        top: 72%;
 
-  transform:
-    translate3d(0,-135px,0)
-    scale(1);
+        font-size: 18px;
+      }
 
-  transition:
-    transform 1.4s cubic-bezier(.18,.82,.2,1),
-    opacity .8s ease .2s;
+      .seal {
+        width: 43px;
+        height: 43px;
 
-  z-index: 4;
+        font-size: 12px;
+      }
 
-  pointer-events: auto;
-}
+      .card {
+        width: 94%;
 
-.scene.open .card-content {
-  opacity: 1;
+        left: 3%;
 
-  transform:
-    translate3d(0,0,0);
-}
+        /*
+          ارتفاع کارت به شکل کنترل‌شده
+        */
+        height: min(78svh, 650px);
+      }
 
-.scene.open .hint {
-  opacity: 0;
-}
+      .card-content {
+        padding:
+          32px
+          25px
+          30px;
+      }
 
-/* =================================================
-   MOBILE
-   ================================================= */
+      .card-name {
+        font-size: 20px;
+      }
 
-@media (max-width: 600px) {
+      .intro {
+        font-size: 13px;
 
-  .page {
-    min-height: 100svh;
-    padding: 20px 10px;
-  }
+        line-height: 2.1;
+      }
 
-  .scene {
-    width: 88vw;
-    height: 300px;
-  }
+      .thesis-title {
+        font-size: 13px;
 
-  .envelope {
-    height: 250px;
-  }
+        line-height: 1.95;
+      }
 
-  .recipient {
-    top: 67%;
-    font-size: 18px;
-  }
+      .info-row {
+        font-size: 12px;
+      }
 
-  .seal {
-    width: 43px;
-    height: 43px;
-    font-size: 12px;
-  }
+      .info-label {
+        min-width: 82px;
+      }
 
-  .card {
-    width: 94%;
-    left: 3%;
+      .closing {
+        font-size: 12px;
+      }
 
-    height: min(78svh,650px);
-  }
+      /*
+        کارت قبلاً -100px بالا می‌رفت.
+        حالا فقط 55px بالا می‌رود تا
+        بالای کارت از صفحه خارج نشود.
+      */
+      .scene.open .card {
+        transform:
+          translate3d(0,-55px,0);
+      }
 
-  .card-content {
-    padding:
-      32px 25px 30px;
-  }
+      .hint {
+        bottom: -30px;
+      }
+    }
 
-  .card-name {
-    font-size: 20px;
-  }
+    /* ===== SMALL MOBILE ===== */
 
-  .intro {
-    font-size: 13px;
-    line-height: 2.1;
-  }
+    @media (max-width: 380px) {
 
-  .thesis-title {
-    font-size: 13px;
-    line-height: 1.95;
-  }
+      .scene {
+        width: 92vw;
+      }
 
-  .info-row {
-    font-size: 12px;
-  }
+      .card-content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
 
-  .info-label {
-    min-width: 82px;
-  }
+      .info-row {
+        display: block;
+      }
 
-  .closing {
-    font-size: 12px;
-  }
+      .info-label {
+        display: block;
 
-  .scene.open .card {
-    transform:
-      translate3d(0,-100px,0);
-  }
+        margin-bottom: 2px;
+      }
 
-  .hint {
-    bottom: -30px;
-  }
-}
-
-/* ===== SMALL MOBILE ===== */
-
-@media (max-width: 380px) {
-
-  .scene {
-    width: 92vw;
-  }
-
-  .card-content {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .info-row {
-    display: block;
-  }
-
-  .info-label {
-    display: block;
-    margin-bottom: 2px;
-  }
-}
-
-</style>
+      /*
+        در گوشی‌های خیلی کوچک،
+        کارت کمی کمتر به بالا حرکت می‌کند.
+      */
+      .scene.open .card {
+        transform:
+          translate3d(0,-45px,0);
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-<div class="decor one"></div>
-<div class="decor two"></div>
+  <div class="decor one"></div>
+  <div class="decor two"></div>
 
+  <div class="page">
 
-<div class="page">
+    <div class="scene" id="scene">
 
-  <div class="scene" id="scene">
+      <!-- ================= CARD ================= -->
 
-    <!-- ================= CARD ================= -->
+      <div class="card">
 
-    <div class="card">
+        <div class="card-content">
 
-      <div class="card-content">
+          <div class="card-top">
 
-        <div class="card-top">
-
-          <div class="small">
-            به نام خدا
-          </div>
-
-          <div
-            class="card-name"
-            id="cardRecipient">
-          </div>
-
-          <div class="gold-line"></div>
-
-        </div>
-
-
-        <div class="intro">
-
-          پس از روزها و ماه‌ها آموختن، جست‌وجو کردن و ساختن،
-          <br>
-
-          اکنون زمان آن رسیده است تا حاصل این مسیر را
-          <br>
-
-          در جلسه دفاع از پایان‌نامه کارشناسی ارشد خود با شما به اشتراک بگذارم.
-          <br>
-
-          با افتخار و صمیمانه از شما دعوت می‌کنم
-          <br>
-
-          تا در این لحظه ارزشمند، همراه و هم‌قدم من باشید.
-
-        </div>
-
-
-        <div class="title-box">
-
-          <div class="title-label">
-            عنوان پایان‌نامه
-          </div>
-
-          <div class="thesis-title">
-
-            «استفاده از الگوریتم‌های یادگیری ماشین به منظور
-            تشخیص مسمومیت داده‌ها از طریق تحلیل ویژگی‌های
-            آماری و ساختاری»
-
-          </div>
-
-        </div>
-
-
-        <div class="info">
-
-          <div class="info-row">
-
-            <div class="info-label">
-              تاریخ و ساعت
+            <div class="small">
+              به نام خدا
             </div>
 
-            <div class="info-value">
-              ۱۲ مهرماه، ساعت ۱۳:۰۰
+            <div
+              class="card-name"
+              id="cardRecipient">
+            </div>
+
+            <div class="gold-line"></div>
+
+          </div>
+
+
+          <div class="intro">
+
+            پس از روزها و ماه‌ها آموختن، جست‌وجو کردن و ساختن،
+
+            <br>
+
+            اکنون زمان آن رسیده است تا حاصل این مسیر را
+
+            <br>
+
+            در جلسه دفاع از پایان‌نامه کارشناسی ارشد خود با شما به اشتراک بگذارم.
+
+            <br>
+
+            با افتخار و صمیمانه از شما دعوت می‌کنم
+
+            <br>
+
+            تا در این لحظه ارزشمند، همراه و هم‌قدم من باشید.
+
+          </div>
+
+
+          <div class="title-box">
+
+            <div class="title-label">
+              عنوان پایان‌نامه
+            </div>
+
+            <div class="thesis-title">
+
+              «استفاده از الگوریتم‌های یادگیری ماشین به منظور
+
+              تشخیص مسمومیت داده‌ها از طریق تحلیل ویژگی‌های
+
+              آماری و ساختاری»
+
             </div>
 
           </div>
 
 
-          <div class="info-row">
+          <div class="info">
 
-            <div class="info-label">
-              محل برگزاری
+            <div class="info-row">
+
+              <div class="info-label">
+                تاریخ و ساعت
+              </div>
+
+              <div class="info-value">
+                ۱۲ مهرماه، ساعت ۱۳:۰۰
+              </div>
+
             </div>
 
-            <div class="info-value">
-              دانشکده مهندسی، دانشکدگان فارابی دانشگاه تهران
+
+            <div class="info-row">
+
+              <div class="info-label">
+                محل برگزاری
+              </div>
+
+              <div class="info-value">
+                دانشکده مهندسی، دانشکدگان فارابی دانشگاه تهران
+              </div>
+
+            </div>
+
+
+            <div class="info-row">
+
+              <div class="info-label">
+                استاد راهنما
+              </div>
+
+              <div class="info-value">
+                دکتر کیهانی‌پور
+              </div>
+
+            </div>
+
+
+            <div class="info-row">
+
+              <div class="info-label">
+                استاد مشاور
+              </div>
+
+              <div class="info-value">
+                دکتر علینژاد
+              </div>
+
+            </div>
+
+
+            <div class="info-row">
+
+              <div class="info-label">
+                اساتید راهنما
+              </div>
+
+              <div class="info-value">
+                دکتر برهانی‌فرد و دکتر مهدوی
+              </div>
+
             </div>
 
           </div>
 
 
-          <div class="info-row">
+          <div class="closing">
 
-            <div class="info-label">
-              استاد راهنما
-            </div>
+            حضور شما در این جلسه،
 
-            <div class="info-value">
-              دکتر کیهانی‌پور
-            </div>
+            <br>
+
+            برای من ارزشمند و موجب خرسندی خواهد بود.
 
           </div>
 
 
-          <div class="info-row">
-
-            <div class="info-label">
-              استاد مشاور
-            </div>
-
-            <div class="info-value">
-              دکتر علینژاد
-            </div>
-
+          <div class="signature">
+            یاسین بیرامی
           </div>
 
-
-          <div class="info-row">
-
-            <div class="info-label">
-              اساتید راهنما
-            </div>
-
-            <div class="info-value">
-              دکتر برهانی‌فرد و دکتر مهدوی
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="closing">
-
-          حضور شما در این جلسه،
-          <br>
-
-          برای من ارزشمند و موجب خرسندی خواهد بود.
-
-        </div>
-
-
-        <div class="signature">
-          یاسین بیرامی
         </div>
 
       </div>
 
-    </div>
 
+      <!-- ================= ENVELOPE ================= -->
 
-    <!-- ================= ENVELOPE ================= -->
+      <div class="envelope">
 
-    <div class="envelope">
+        <div class="envelope-body"></div>
 
-      <div class="envelope-body"></div>
+        <div class="flap"></div>
 
-      <div class="flap"></div>
+        <div
+          class="recipient"
+          id="recipient">
+        </div>
 
-      <div
-        class="recipient"
-        id="recipient">
+        <div class="seal">
+          YB
+        </div>
+
       </div>
 
-      <div class="seal">
-        YB
+
+      <div class="hint">
+        برای مشاهده دعوت‌نامه روی پاکت کلیک کنید
       </div>
 
-    </div>
-
-
-    <div class="hint">
-      برای مشاهده دعوت‌نامه روی پاکت کلیک کنید
     </div>
 
   </div>
 
-</div>
+
+  <script>
+
+    /* ==========================================
+       لیست مهمان‌ها
+       ========================================== */
+
+    const guests = {
+
+      "seyed-mohammad-hosseini": {
+        gender: "male",
+        firstName: "سید محمد",
+        lastName: "حسینی"
+      },
+
+      "amin-mohammadi-kashani": {
+        gender: "male",
+        firstName: "امین",
+        lastName: "محمدی کاشانی"
+      },
+
+      "mohammad-hossein-rahimi": {
+        gender: "male",
+        firstName: "محمد حسین",
+        lastName: "رحیمی"
+      },
+
+      "seyed-ali-hedayati": {
+        gender: "male",
+        firstName: "سید علی",
+        lastName: "هدایتی"
+      },
+
+      "mohammad-sajjad-ramezani": {
+        gender: "male",
+        firstName: "محمد سجاد",
+        lastName: "رمضانی"
+      },
+
+      "ehsan-alikhani": {
+        gender: "male",
+        firstName: "احسان",
+        lastName: "علیخانی"
+      },
+
+      "ali-alizadeh": {
+        gender: "male",
+        firstName: "علی",
+        lastName: "علیزاده"
+      },
+
+      "mohammad-ali-alibeigi": {
+        gender: "male",
+        firstName: "محمدعلی",
+        lastName: "علی بیگی"
+      },
+
+      "reza-vahidnia": {
+        gender: "male",
+        firstName: "رضا",
+        lastName: "وحیدنیا"
+      },
+
+      "mohammad-ali-mazaheri-fard": {
+        gender: "male",
+        firstName: "محمدعلی",
+        lastName: "مظاهری فرد"
+      },
+
+      "mohammad-rahimi": {
+        gender: "male",
+        firstName: "محمد",
+        lastName: "رحیمی"
+      },
+
+      "mohammad-reza-khodamradi": {
+        gender: "male",
+        firstName: "محمد رضا",
+        lastName: "خدامرادی"
+      },
+
+      "ali-asghar-khavarian": {
+        gender: "male",
+        firstName: "علی اصغر",
+        lastName: "خاوریان"
+      },
+
+      "hasan-touhidinia": {
+        gender: "male",
+        firstName: "حسن",
+        lastName: "توحیدی نیا"
+      },
+
+      "mohammad-mahdi-golmohammadi": {
+        gender: "male",
+        firstName: "محمد مهدی",
+        lastName: "گل محمدی"
+      },
+
+      "seyed-mahdi-moghimii": {
+        gender: "male",
+        firstName: "سید مهدی",
+        lastName: "مقیمی"
+      },
+
+      "arian-hariri": {
+        gender: "male",
+        firstName: "آرین",
+        lastName: "حریری"
+      },
+
+      "navid-shirdel": {
+        gender: "male",
+        firstName: "نوید",
+        lastName: "شیردل"
+      },
+
+      "malika-arabzadeh": {
+        gender: "female",
+        firstName: "ملیکا",
+        lastName: "عرب زاده"
+      },
+
+      "faezeh-khadem": {
+        gender: "female",
+        firstName: "فائزه",
+        lastName: "خادم"
+      },
+
+      "mozhdeh-toudeh-kharman": {
+        gender: "female",
+        firstName: "محدثه",
+        lastName: "توده خرمن"
+      },
+
+      "mozhdeh-abbasi": {
+        gender: "female",
+        firstName: "محدثه",
+        lastName: "عباسی"
+      }
+
+    };
 
 
-<script>
-/* ==========================================
-   لیست مهمان‌ها
-   ========================================== */
+    /* ==========================================
+       گرفتن شخص از لینک
+       ========================================== */
 
-   const guests = {
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
 
-    "seyed-mohammad-hosseini": {
-      gender: "male",
-      firstName: "سید محمد",
-      lastName: "حسینی"
-    },
-  
-    "amin-mohammadi-kashani": {
-      gender: "male",
-      firstName: "امین",
-      lastName: "محمدی کاشانی"
-    },
-  
-    "mohammad-hossein-rahimi": {
-      gender: "male",
-      firstName: "محمد حسین",
-      lastName: "رحیمی"
-    },
-  
-    "seyed-ali-hedayati": {
-      gender: "male",
-      firstName: "سید علی",
-      lastName: "هدایتی"
-    },
-  
-    "mohammad-sajjad-ramezani": {
-      gender: "male",
-      firstName: "محمد سجاد",
-      lastName: "رمضانی"
-    },
-  
-    "ehsan-alikhani": {
-      gender: "male",
-      firstName: "احسان",
-      lastName: "علیخانی"
-    },
-  
-    "ali-alizadeh": {
-      gender: "male",
-      firstName: "علی",
-      lastName: "علیزاده"
-    },
-  
-    "mohammad-ali-alibeigi": {
-      gender: "male",
-      firstName: "محمدعلی",
-      lastName: "علی بیگی"
-    },
-  
-    "reza-vahidnia": {
-      gender: "male",
-      firstName: "رضا",
-      lastName: "وحیدنیا"
-    },
-  
-    "mohammad-ali-mazaheri-fard": {
-      gender: "male",
-      firstName: "محمدعلی",
-      lastName: "مظاهری فرد"
-    },
-  
-    "mohammad-rahimi": {
-      gender: "male",
-      firstName: "محمد",
-      lastName: "رحیمی"
-    },
-  
-    "mohammad-reza-khodamradi": {
-      gender: "male",
-      firstName: "محمد رضا",
-      lastName: "خدامرادی"
-    },
-  
-    "ali-asghar-khavarian": {
-      gender: "male",
-      firstName: "علی اصغر",
-      lastName: "خاوریان"
-    },
-  
-    "hasan-touhidinia": {
-      gender: "male",
-      firstName: "حسن",
-      lastName: "توحیدی نیا"
-    },
-  
-    "mohammad-mahdi-golmohammadi": {
-      gender: "male",
-      firstName: "محمد مهدی",
-      lastName: "گل محمدی"
-    },
-  
-    "seyed-mahdi-moghimii": {
-      gender: "male",
-      firstName: "سید مهدی",
-      lastName: "مقیمی"
-    },
-  
-    "arian-hariri": {
-      gender: "male",
-      firstName: "آرین",
-      lastName: "حریری"
-    },
-  
-    "navid-shirdel": {
-      gender: "male",
-      firstName: "نوید",
-      lastName: "شیردل"
-    },
-  
-    "malika-arabzadeh": {
-      gender: "female",
-      firstName: "ملیکا",
-      lastName: "عرب زاده"
-    },
-  
-    "faezeh-khadem": {
-      gender: "female",
-      firstName: "فائزه",
-      lastName: "خادم"
-    },
-  
-    "mozhdeh-toudeh-kharman": {
-      gender: "female",
-      firstName: "محدثه",
-      lastName: "توده خرمن"
-    },
-  
-    "mozhdeh-abbasi": {
-      gender: "female",
-      firstName: "محدثه",
-      lastName: "عباسی"
-    }
-  
-  };
-  
-  
-  /* ==========================================
-     گرفتن شخص از لینک
-     ========================================== */
-  
-  const params = new URLSearchParams(
-    window.location.search
-  );
-  
-  const personId =
-    params.get("person") || "ali-ahmadi";
-  
-  
-  /* ==========================================
-     پیدا کردن مهمان
-     ========================================== */
-  
-  const recipient =
-    guests[personId];
-  
-  
-  /* ==========================================
-     نمایش اطلاعات مهمان
-     ========================================== */
-  
-  if (!recipient) {
-  
-    document.getElementById("recipient").textContent =
-      "مهمان گرامی";
-  
-    document.getElementById("cardRecipient").textContent =
-      "مهمان گرامی";
-  
-  } else {
-  
-    let fullName;
-  
-  
-    /* عنوان رسمی بر اساس جنسیت */
-  
-    if (recipient.gender === "female") {
-  
-      fullName =
-        "سرکار خانم " +
-        recipient.firstName +
-        " " +
-        recipient.lastName;
-  
+    const personId =
+      params.get("person") ||
+      "ali-ahmadi";
+
+
+    /* ==========================================
+       پیدا کردن مهمان
+       ========================================== */
+
+    const recipient =
+      guests[personId];
+
+
+    /* ==========================================
+       نمایش اطلاعات مهمان
+       ========================================== */
+
+    if (!recipient) {
+
+      document
+        .getElementById("recipient")
+        .textContent =
+        "مهمان گرامی";
+
+      document
+        .getElementById("cardRecipient")
+        .textContent =
+        "مهمان گرامی";
+
     } else {
-  
-      fullName =
-        "جناب آقای " +
-        recipient.firstName +
-        " " +
-        recipient.lastName;
-  
-    }
-  
-  
-    /* نام روی پاکت */
-  
-    document.getElementById("recipient").textContent =
-      fullName;
-  
-  
-    /* نام روی کارت */
-  
-    document.getElementById("cardRecipient").textContent =
-      fullName;
-  
-  }
-  
-  
-  /* ==========================================
-     باز و بسته کردن پاکت
-     ========================================== */
-  
-  const scene =
-    document.getElementById("scene");
-  
-  
-  scene.addEventListener("click", function(event) {
-  
-    /*
-      اگر کارت باز است و کاربر داخل متن کارت
-      اسکرول می‌کند، پاکت بسته نشود.
-    */
-  
-    if (
-      scene.classList.contains("open") &&
-      event.target.closest(".card-content")
-    ) {
-      return;
-    }
-  
-  
-    /* باز ↔ بسته */
-  
-    scene.classList.toggle("open");
-  
-  });
 
-</script>
+      let fullName;
+
+
+      /* عنوان رسمی بر اساس جنسیت */
+
+      if (recipient.gender === "female") {
+
+        fullName =
+          "سرکار خانم " +
+          recipient.firstName +
+          " " +
+          recipient.lastName;
+
+      } else {
+
+        fullName =
+          "جناب آقای " +
+          recipient.firstName +
+          " " +
+          recipient.lastName;
+
+      }
+
+
+      /* نام روی پاکت */
+
+      document
+        .getElementById("recipient")
+        .textContent =
+        fullName;
+
+
+      /* نام روی کارت */
+
+      document
+        .getElementById("cardRecipient")
+        .textContent =
+        fullName;
+
+    }
+
+
+    /* ==========================================
+       باز و بسته کردن پاکت
+       ========================================== */
+
+    const scene =
+      document.getElementById("scene");
+
+
+    scene.addEventListener(
+      "click",
+      function(event) {
+
+        /*
+          اگر کارت باز است و کاربر داخل متن کارت
+          اسکرول می‌کند، پاکت بسته نشود.
+        */
+
+        if (
+          scene.classList.contains("open") &&
+          event.target.closest(".card-content")
+        ) {
+          return;
+        }
+
+
+        /* باز ↔ بسته */
+
+        scene.classList.toggle("open");
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>
